@@ -26,12 +26,12 @@ class App extends React.Component {
 
     OnIncr = () => {
         let size = parseInt(this.state.size.replace(/\D/g,''));
-        this.setState({size: `${size + 1}px`});
+        size < 40 && this.setState({size: `${size + 1}px`});
     }
 
     OnDecr = () => {
         let size = parseInt(this.state.size.replace(/\D/g,''));
-        this.setState({size: `${size - 1}px`});
+        size < 10 && this.setState({size: `${size - 1}px`});
     }
 
     handleChangeBackground = () => {
