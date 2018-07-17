@@ -61,7 +61,7 @@ class App extends React.Component {
                 <Response isSuccess={true} style={this.state.style} size={this.state.size}/>
                 <button onClick={this.handleChangeBackground}>Изменить фон</button>
                 <button onClick={this.handleChangeSize}>Изменить размер</button>
-                <input type='number' onChange={this.onChangeInput}/>
+                <input  type='range' max='40' min='10' onChange={this.onChangeInput}/>
                 <button onClick={this.alertSize}>show size!</button>
             </React.Fragment>
     }
