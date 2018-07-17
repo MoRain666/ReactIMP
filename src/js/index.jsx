@@ -25,11 +25,13 @@ class App extends React.Component {
     }
 
     OnIncr = () => {
-        this.setState({temperture: this.state.temperture + 1})
+        let size = parseInt(this.state.size.replace(/\D/g,''));
+        this.setState({size: `${size + 1}px`});
     }
 
     OnDecr = () => {
-        this.setState({temperture: this.state.temperture - 1})
+        let size = parseInt(this.state.size.replace(/\D/g,''));
+        this.setState({size: `${size - 1}px`});
     }
 
     handleChangeBackground = () => {
@@ -41,16 +43,26 @@ class App extends React.Component {
         this.setState({size:`${size}px`})
     }
 
+    onChangeInput = (e) => {
+        this.setState({size: `${e.target.value}px`})
+    }
+
+    alertSize = () => {
+        alert(`size is ${this.state.size}`)
+    }
+
     render(){
         return <React.Fragment>
                 <h1>hello, {this.props.name}</h1>
                 <div>its {this.state.currentTime}</div>
-                <div>Current temperature: {this.state.temperture}</div>
-                <button onClick={this.OnIncr}>увеличить</button>
-                <button onClick={this.OnDecr}>уменьшить</button>
+                <div>Current siz: {this.state.size}</div>
+                <button onClick={this.OnIncr}>увеличить размер</button>
+                <button onClick={this.OnDecr}>уменьшить размер</button>
                 <Response isSuccess={true} style={this.state.style} size={this.state.size}/>
                 <button onClick={this.handleChangeBackground}>Изменить фон</button>
                 <button onClick={this.handleChangeSize}>Изменить размер</button>
+                <input type='number' onChange={this.onChangeInput}/>
+                <button onClick={this.alertSize}>show size!</button>
             </React.Fragment>
     }
 
